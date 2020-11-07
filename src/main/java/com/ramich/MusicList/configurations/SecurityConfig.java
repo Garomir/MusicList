@@ -40,6 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/albums/**").hasAuthority(Permission.SONGS_READ.getPermission())
                 .antMatchers(HttpMethod.GET, "/artist/**").hasAuthority(Permission.SONGS_READ.getPermission())
                 .antMatchers("/author/login").permitAll()
+                .antMatchers("/author/logout").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
