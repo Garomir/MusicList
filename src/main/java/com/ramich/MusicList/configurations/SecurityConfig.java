@@ -39,11 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.GET, "/songs/**").hasAuthority(Permission.SONGS_READ.getPermission())
                 .antMatchers(HttpMethod.GET, "/albums/**").hasAuthority(Permission.SONGS_READ.getPermission())
                 .antMatchers(HttpMethod.GET, "/artist/**").hasAuthority(Permission.SONGS_READ.getPermission())
+                .antMatchers("/author/login").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()
-                //.apply(jwtConfigurer)
-                .httpBasic();
+                .apply(jwtConfigurer);
     }
 
     @Bean

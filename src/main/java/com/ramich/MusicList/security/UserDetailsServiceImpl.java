@@ -2,6 +2,7 @@ package com.ramich.MusicList.security;
 
 import com.ramich.MusicList.entities.User;
 import com.ramich.MusicList.repositories.UserRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -14,6 +15,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final UserRepo userRepo;
 
+    @Autowired
     public UserDetailsServiceImpl(UserRepo userRepo) {
         this.userRepo = userRepo;
     }

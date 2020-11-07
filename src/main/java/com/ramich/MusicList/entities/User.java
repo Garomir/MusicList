@@ -7,15 +7,21 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int id;
+    @Column(name = "email")
     private String email;
+    @Column(name = "password")
     private String password;
+    @Column(name = "Firstname")
     private String firstname;
+    @Column(name = "Lastname")
     private String lastname;
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "Role")
     private Role role;
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "Status")
     private Status status;
 
     public User() {
