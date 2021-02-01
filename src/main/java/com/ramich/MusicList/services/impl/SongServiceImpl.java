@@ -3,7 +3,6 @@ package com.ramich.MusicList.services.impl;
 import com.ramich.MusicList.entities.Song;
 import com.ramich.MusicList.repositories.SongRepository;
 import com.ramich.MusicList.services.SongService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +11,11 @@ import java.util.Optional;
 @Service
 public class SongServiceImpl implements SongService {
 
-    @Autowired
-    private SongRepository songRepository;
+    private final SongRepository songRepository;
+
+    public SongServiceImpl(SongRepository songRepository) {
+        this.songRepository = songRepository;
+    }
 
     @Override
     public List<Song> getAllSongs() {
